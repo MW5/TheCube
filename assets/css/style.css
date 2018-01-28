@@ -1,0 +1,128 @@
+:root {
+	/*ccel = cube container edge length*/
+	/*cztp = cube z translate positive val*/
+	/*cztn = cube z translate negative val*/
+  --ccel: 40vw;
+	--cztp: calc(var(--ccel)/2);
+	--cztn: calc(var(--ccel)/-2);
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	line-height: 0;
+}
+
+/*cube mechanics*/
+.cube_container {
+	margin-left: calc(100vw/2 - var(--ccel)/2);
+	margin-top: calc(100vh/2 - var(--ccel)/2);
+  width: var(--ccel);
+  height: var(--ccel);
+  position: relative;
+  perspective: 1000px;
+}
+
+#cube {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+	transform: translateZ(var(--cztn));
+	transition: transform 1s;
+}
+
+#cube figure {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+}
+
+#cube .front  { transform: rotateY(   0deg ) translateZ(var(--cztp)); }
+#cube .back   { transform: rotateX( 180deg ) translateZ(var(--cztp)); }
+#cube .right  { transform: rotateY(  90deg ) translateZ(var(--cztp)); }
+#cube .left   { background-color: gray; transform: rotateY( -90deg ) translateZ(var(--cztp)); }
+#cube .top    { transform: rotateX(  90deg ) translateZ(var(--cztp)); }
+#cube .bottom { transform: rotateX( -90deg ) translateZ(var(--cztp)); }
+
+#cube.show-front  { transform: translateZ(var(--cztn)) rotateY(    0deg ); }
+#cube.show-back   { transform: translateZ(var(--cztn)) rotateX( -180deg ); }
+#cube.show-right  { transform: translateZ(var(--cztn)) rotateY(  -90deg ); }
+#cube.show-left   { transform: translateZ(var(--cztn)) rotateY(   90deg ); }
+#cube.show-top    { transform: translateZ(var(--cztn)) rotateX(  -90deg ); }
+#cube.show-bottom { transform: translateZ(var(--cztn)) rotateX(   90deg ); }
+
+/*menu view*/
+.row {
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	height: 50%;
+  margin: 0;
+}
+
+.big_btn {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: gray;
+  transition: 1s ease-out;
+}
+
+.big_btn:hover {
+  border-radius: 0;
+}
+
+.btn_text {
+  display: inline-block;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+/*register view*/
+.register_input_wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.register_caption {
+	position: absolute;
+	margin-top: 40%;
+	width: 100%;
+	font-size: 30px;
+	text-align: center;
+	background-color: blue;
+}
+
+.register_input_field {
+	margin-left: 20%;
+	margin-top: 45%;
+	width: 60%;
+	height: 10%;
+	font-size: 30px;
+	background-color: red;
+}
+
+.ok_circle {
+	position: absolute;
+	width:20%;
+	left: 40%;
+	height:20%;
+	top: 60%;
+	border-radius: 50%;
+	background-color: cyan;
+}
+
+.ok_arrow {
+	position: absolute;
+	width: 60%;
+	left: 15%;
+	height:60%;
+	top: 20%;
+}
