@@ -34,8 +34,8 @@
     <figure class="back"></figure>
     <figure class="right"></figure>
     <figure class="left">
-
       <div id="user_wrapper" class="register_input_wrapper">
+          <div id="back_name_main" class="back_bar_r"></div>
           <span class="register_caption">Nazwa użytkownika</span>
           <input id="user_name" class="register_input_field" type="text">
           <div id="reg_name_conf_btn" class="ok_circle disabled">
@@ -44,6 +44,7 @@
       </div>
 
       <div id="email_wrapper" class="register_input_wrapper">
+          <div id="back_email_name" class="back_bar_u"></div>
           <span class="register_caption">Adres Email</span>
           <input id="user_email" class="register_input_field" type="email">
           <div id="reg_email_conf_btn" class="ok_circle disabled">
@@ -51,16 +52,21 @@
         </div>
       </div>
       <div id="pass_wrapper" class="register_input_wrapper">
+          <div id="back_pass_email" class="back_bar_u"></div>
           <span class="register_caption">Hasło</span>
           <input id="user_pass" class="register_input_field" type="password">
-          <div id="reg_pass_conf_btn" class="ok_circle">
-            <div class="ok_arrow"></div>
+          <div id="reg_pass_conf_btn" class="ok_circle disabled">
+            <div id="ok_arrow_bottom_right" class="ok_arrow"></div>
           </div>
       </div>
-
     </figure>
     <figure class="top"></figure>
-    <figure class="bottom"></figure>
+    <figure class="bottom">
+      <div class="default_wrapper">
+          <div id="back_conf_reg_main_menu" class="back_bar_u"></div>
+          <span class="reg_conf_caption">Nazwa użytkownika</span>
+      </div>
+    </figure>
   </div>
 </section>
 

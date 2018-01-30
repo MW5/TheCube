@@ -10,6 +10,14 @@ gray2 #D7D3D0*/
   --ccel: 40vw;
 	--cztp: calc(var(--ccel)/2);
 	--cztn: calc(var(--ccel)/-2);
+
+  --main_menu_bg_color: #a18cd1;
+
+  --reg_name_bg_color: #FFFF00;
+  --reg_email_bg_color: #FFF200;
+  --reg_pass_bg_color: #FFD500;
+
+  --confirm_reg_bg_color: #0878FF;
 }
 
 body {
@@ -46,12 +54,12 @@ body {
   position: absolute;
 }
 
-#cube .front  { background-color: #a18cd1; transform: rotateY(   0deg ) translateZ(var(--cztp)); }
+#cube .front  { background-color: var(--main_menu_bg_color); transform: rotateY(   0deg ) translateZ(var(--cztp)); }
 #cube .back   { transform: rotateX( 180deg ) translateZ(var(--cztp)); }
 #cube .right  { transform: rotateY(  90deg ) translateZ(var(--cztp)); }
-#cube .left   { background-color: #FFFF00 ;transform: rotateY( -90deg ) translateZ(var(--cztp)); }
+#cube .left   { transform: rotateY( -90deg ) translateZ(var(--cztp)); } /*left colors set differently due to multiple cards*/
 #cube .top    { transform: rotateX(  90deg ) translateZ(var(--cztp)); }
-#cube .bottom { transform: rotateX( -90deg ) translateZ(var(--cztp)); }
+#cube .bottom { background-color: var(--confirm_reg_bg_color); transform: rotateX( -90deg ) translateZ(var(--cztp)); }
 
 #cube.show-front  { transform: translateZ(var(--cztn)) rotateY(    0deg ); }
 #cube.show-back   { transform: translateZ(var(--cztn)) rotateX( -180deg ); }
@@ -99,15 +107,18 @@ body {
 
 #user_wrapper {
   position: relative;
+  background-color: var(--reg_name_bg_color);
 }
 
 #email_wrapper {
   position: relative;
   opacity: 0;
+  background-color: var(--reg_email_bg_color);
 }
 #pass_wrapper {
   position: relative;
   opacity: 0;
+  background-color: var(--reg_pass_bg_color);
 }
 
 .register_caption {
@@ -130,6 +141,7 @@ body {
   padding-right:2%;
 }
 
+/*nav elements*/
 .ok_circle {
 	position: absolute;
 	width:20%;
@@ -165,6 +177,45 @@ body {
 .ok_circle.enabled:hover > .ok_arrow {
   top: 27%;
 }
-.ok_circle.enabled:hover > .ok_arrow:active {
-  top: 100%;
+.ok_circle.enabled:hover > #ok_arrow_bottom_right {
+  left: 23%;
+  transform: rotateZ(-45deg);
+}
+
+/*nav right bar*/
+.back_bar_r {
+  position: absolute;
+  top: 0;
+	right:0;
+	height:100%;
+  width: 10%;
+  transition: 0.5s ease-out;
+}
+.back_bar_r:hover {
+  width: 15%;
+}
+#back_name_main {
+  background-color: var(--main_menu_bg_color);
+}
+
+/*nav up bar*/
+.back_bar_u {
+  position: absolute;
+  top: 0;
+	left:0;
+	height:10%;
+  width: 100%;
+  transition: 0.5s ease-out;
+}
+.back_bar_u:hover {
+  height: 15%;
+}
+#back_email_name {
+  background-color: var(--reg_name_bg_color);
+}
+#back_pass_email {
+  background-color: var(--reg_email_bg_color);
+}
+#back_conf_reg_main_menu {
+  background-color: var(--main_menu_bg_color);
 }
