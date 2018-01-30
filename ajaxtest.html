@@ -35,7 +35,7 @@
     <figure class="right"></figure>
     <figure class="left">
 
-      <div class="register_input_wrapper">
+      <div id="user_wrapper" class="register_input_wrapper">
           <span class="register_caption">Nazwa użytkownika</span>
           <input id="user_name" class="register_input_field" type="text">
           <div id="reg_name_conf_btn" class="ok_circle disabled">
@@ -43,14 +43,14 @@
           </div>
       </div>
 
-      <div class="register_input_wrapper">
+      <div id="email_wrapper" class="register_input_wrapper">
           <span class="register_caption">Adres Email</span>
           <input id="user_email" class="register_input_field" type="email">
-          <div id="reg_email_conf_btn" class="ok_circle">
+          <div id="reg_email_conf_btn" class="ok_circle disabled">
             <div class="ok_arrow"></div>
         </div>
       </div>
-      <div class="register_input_wrapper">
+      <div id="pass_wrapper" class="register_input_wrapper">
           <span class="register_caption">Hasło</span>
           <input id="user_pass" class="register_input_field" type="password">
           <div id="reg_pass_conf_btn" class="ok_circle">
