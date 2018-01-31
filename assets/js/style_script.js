@@ -6,6 +6,15 @@ $(document).ready(function(){
   //clear input on reload
   $("input").val("");
 
+  //disable tab key
+  $("input").keypress(function (evt) {
+
+  var keycode = evt.keyCode;
+  if (keycode  == 9) {
+    return false;
+  }
+});
+
   //nav
   $("#register_btn").click(function(){
     $("#cube").removeClass();
@@ -104,16 +113,22 @@ $(document).ready(function(){
   var user_pass_valid = false;
 
   //name validator
+  var minNameLength = 4;
+  var maxNameLength = 30;
   $("#user_name").keyup(function(){
-    var minNameLength = 4;
-    if ($("#user_name").val().length>=minNameLength && !$("#reg_name_conf_btn").hasClass("enabled")) {
+    if ($("#user_name").val().length>=minNameLength &&
+        !$("#reg_name_conf_btn").hasClass("enabled") &&
+          $("#user_name").val().length<=maxNameLength) {
       $("#reg_name_conf_btn").addClass("enabled");
       $("#reg_name_conf_btn").removeClass("disabled");
       user_name_valid = true;
     }
-    if ($("#user_name").val().length<minNameLength && !$("#reg_name_conf_btn").hasClass("disabled")) {
+    if ($("#user_name").val().length<minNameLength || $("#user_name").val().length>maxNameLength &&
+          !$("#reg_name_conf_btn").hasClass("disabled")
+            ) {
       $("#reg_name_conf_btn").addClass("disabled");
       $("#reg_name_conf_btn").removeClass("enabled");
+      user_name_valid = false;
     }
   })
 
@@ -122,30 +137,38 @@ $(document).ready(function(){
     var emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return emailRegex.test($("#user_email").val());
   }
+  var maxEmailLength = 30;
   $("#user_email").keyup(function(){
-    if (!$("#reg_email_conf_btn").hasClass("enabled") && validEmail()) {
+    if (!$("#reg_email_conf_btn").hasClass("enabled") &&
+          validEmail() && $("#user_email").val().length<=maxEmailLength) {
       $("#reg_email_conf_btn").addClass("enabled");
       $("#reg_email_conf_btn").removeClass("disabled");
       user_email_valid = true;
     }
-    if (!$("#reg_email_conf_btn").hasClass("disabled") && !validEmail()) {
+    if (!$("#reg_email_conf_btn").hasClass("disabled") &&
+        !validEmail() || $("#user_email").val().length>maxEmailLength) {
       $("#reg_email_conf_btn").addClass("disabled");
       $("#reg_email_conf_btn").removeClass("enabled");
+      user_email_valid = false;
     }
   })
 
   //password validator
-  //name validator
+  var minPassLength = 6;
+  var maxPassLength = 30;
   $("#user_pass").keyup(function(){
-    var minPassLength = 6;
-    if ($("#user_pass").val().length>=minPassLength && !$("#reg_pass_conf_btn").hasClass("enabled")) {
+    if ($("#user_pass").val().length>=minPassLength &&
+          !$("#reg_pass_conf_btn").hasClass("enabled") &&
+            $("#user_pass").val().length<=maxPassLength) {
       $("#reg_pass_conf_btn").addClass("enabled");
       $("#reg_pass_conf_btn").removeClass("disabled");
       user_pass_valid = true;
     }
-    if ($("#user_pass").val().length<minNameLength && !$("#reg_pass_conf_btn").hasClass("disabled")) {
+    if ($("#user_pass").val().length<minPassLength || $("#user_pass").val().length>maxPassLength &&
+          !$("#reg_pass_conf_btn").hasClass("disabled")) {
       $("#reg_pass_conf_btn").addClass("disabled");
       $("#reg_pass_conf_btn").removeClass("enabled");
+      user_pass_valid = false;
     }
   })
 
