@@ -22,13 +22,15 @@ gray2 #D7D3D0*/
   --login_bg_color: #018CFF;
 
   --list_bg_color: #FF3D00;
+
+  --back_bg_color: #271A1A;
 }
 
 body {
 	padding: 0;
 	margin: 0;
   overflow: hidden;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 /*cube mechanics*/
@@ -59,7 +61,7 @@ body {
 }
 
 #cube .front  { background-color: var(--main_bg_color); transform: rotateY(   0deg ) translateZ(var(--cztp)); }
-#cube .back   { transform: rotateX( 180deg ) translateZ(var(--cztp)); }
+#cube .back   { background-color: var(--back_bg_color); transform: rotateX( 180deg ) translateZ(var(--cztp)); }
 #cube .right  { background-color: var(--login_bg_color); transform: rotateY(  90deg ) translateZ(var(--cztp)); }
 #cube .left   { transform: rotateY( -90deg ) translateZ(var(--cztp)); } /*left colors set differently due to multiple cards*/
 #cube .top    { background-color: var(--list_bg_color); transform: rotateX(  90deg ) translateZ(var(--cztp)); }
@@ -328,7 +330,9 @@ body {
 #the_list {
   position: absolute;
   width: 80%;
-  height: 80%;
+  height: 70%;
   top: 10%;
   left: 10%;
+  overflow-y: scroll;
+  font-size: 15px;
 }

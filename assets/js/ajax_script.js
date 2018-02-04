@@ -96,8 +96,14 @@ $(window).on('load', function(){
                 req_type: "get_list"
             },
             function(data, status){
-                          console.log(status);
               console.log(data);
+              var JSONObject = $.parseJSON(data);
+              var ul = $('<ol>').appendTo($("#the_list"));
+              $.each(JSONObject, function(index, item) {
+                  ul.append(
+                      $(document.createElement('li')).text(item["user_name"]+": "+item["user_email"])
+                  );
+              });
             });
             $("#cube").removeClass();
             $("#cube").toggleClass("show-top");

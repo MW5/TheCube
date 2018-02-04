@@ -8,12 +8,11 @@ $(window).on('load', function(){
 
   //disable tab key
   $("input").keypress(function (evt) {
-
-  var keycode = evt.keyCode;
-  if (keycode  == 9) {
-    return false;
-  }
-});
+    var keycode = evt.keyCode;
+    if (keycode  == 9) {
+      return false;
+    }
+  });
 
   //nav
   $("#register_btn").click(function(){
