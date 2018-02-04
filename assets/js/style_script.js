@@ -1,7 +1,7 @@
 $(window).on('load', function(){
 
     //temp fixed position cube fix
-      // $("#cube").toggleClass("show-bottom");
+      // $("#cube").toggleClass("show-top");
 
   //clear input on reload
   $("input").val("");
@@ -27,6 +27,15 @@ $(window).on('load', function(){
   });
 
   $("#back_name_main").click(function(){
+    $("#cube").removeClass();
+    $("#cube").toggleClass("show-front");
+  });
+  $("#back_login_main").click(function(){
+    $("#cube").removeClass();
+    $("#cube").toggleClass("show-front");
+  });
+  $("#back_list_main").click(function(){
+    $("#the_list").html("");
     $("#cube").removeClass();
     $("#cube").toggleClass("show-front");
   });
@@ -57,9 +66,40 @@ $(window).on('load', function(){
     }, 1000);
   })
 
-  $("#back_conf_reg_main_menu").click(function(){
+  $("#back_conf_reg_main").click(function(){
     $("#cube").removeClass();
     $("#cube").toggleClass("show-front");
+  });
+
+  $("#back_conf_reg_name").click(function(){
+    $( "#user_wrapper" ).animate({
+      opacity: 1,
+      top: "0%",
+    }, 1000);
+    $( "#email_wrapper" ).animate({
+      opacity: 0,
+      top: "0%",
+    }, 1000);
+    $( "#pass_wrapper" ).animate({
+      top: "0%",
+    }, 1000);
+    $("#cube").removeClass();
+    $("#cube").toggleClass("show-left");
+  });
+  $("#back_conf_reg_email").click(function(){
+    $( "#user_wrapper" ).animate({
+        top: "-100%",
+    }, 1000);
+    $( "#email_wrapper" ).animate({
+      opacity: 1,
+      top: "-100%",
+    }, 1000);
+    $( "#pass_wrapper" ).animate({
+      opacity: 0,
+      top: "-100%",
+    }, 1000);
+    $("#cube").removeClass();
+    $("#cube").toggleClass("show-left");
   });
 
   //change input mode to email

@@ -11,13 +11,17 @@ gray2 #D7D3D0*/
 	--cztp: calc(var(--ccel)/2);
 	--cztn: calc(var(--ccel)/-2);
 
-  --main_menu_bg_color: #a18cd1;
+  --main_bg_color: #a18cd1;
 
   --reg_name_bg_color: #FFFF00;
   --reg_email_bg_color: #FFF200;
   --reg_pass_bg_color: #FFD500;
 
-  --confirm_reg_bg_color: #0878FF;
+  --confirm_reg_bg_color: #00FF00;
+
+  --login_bg_color: #018CFF;
+
+  --list_bg_color: #FF3D00;
 }
 
 body {
@@ -54,11 +58,11 @@ body {
   position: absolute;
 }
 
-#cube .front  { background-color: var(--main_menu_bg_color); transform: rotateY(   0deg ) translateZ(var(--cztp)); }
+#cube .front  { background-color: var(--main_bg_color); transform: rotateY(   0deg ) translateZ(var(--cztp)); }
 #cube .back   { transform: rotateX( 180deg ) translateZ(var(--cztp)); }
-#cube .right  { transform: rotateY(  90deg ) translateZ(var(--cztp)); }
+#cube .right  { background-color: var(--login_bg_color); transform: rotateY(  90deg ) translateZ(var(--cztp)); }
 #cube .left   { transform: rotateY( -90deg ) translateZ(var(--cztp)); } /*left colors set differently due to multiple cards*/
-#cube .top    { transform: rotateX(  90deg ) translateZ(var(--cztp)); }
+#cube .top    { background-color: var(--list_bg_color); transform: rotateX(  90deg ) translateZ(var(--cztp)); }
 #cube .bottom { background-color: var(--confirm_reg_bg_color); transform: rotateX( -90deg ) translateZ(var(--cztp)); }
 
 #cube.show-front  { transform: translateZ(var(--cztn)) rotateY(    0deg ); }
@@ -175,9 +179,11 @@ body {
 .ok_circle.enabled:hover > .ok_arrow {
   top: 27%;
 }
-.ok_circle.enabled:hover > #ok_arrow_bottom_right {
+
+.ok_circle.enabled:hover > #ok_arrow_right {
+  top: 19%;
   left: 23%;
-  transform: rotateZ(-45deg);
+  transform: rotateZ(-90deg);
 }
 
 /*nav right bar*/
@@ -192,8 +198,8 @@ body {
 .back_bar_r:hover {
   width: 15%;
 }
-#back_name_main {
-  background-color: var(--main_menu_bg_color);
+#back_name_main, #back_login_main {
+  background-color: var(--main_bg_color);
 }
 
 /*nav up bar*/
@@ -208,32 +214,121 @@ body {
 .back_bar_u:hover {
   height: 15%;
 }
+/*nav down bar*/
+.back_bar_d {
+  position: absolute;
+  bottom: 0;
+	left:0;
+	height:10%;
+  width: 100%;
+  transition: 0.5s ease-out;
+}
+.back_bar_d:hover {
+  height: 15%;
+}
 #back_email_name {
   background-color: var(--reg_name_bg_color);
 }
 #back_pass_email {
   background-color: var(--reg_email_bg_color);
 }
-#back_conf_reg_main_menu {
-  background-color: var(--main_menu_bg_color);
+#back_conf_reg_main {
+  background-color: var(--main_bg_color);
+}
+/*nav left bar*/
+.back_bar_l {
+  position: absolute;
+  top: 0;
+	left:0;
+	height:100%;
+  width: 10%;
+  transition: 0.5s ease-out;
+}
+.back_bar_l:hover {
+  width: 15%;
+}
+
+#back_conf_reg_name {
+  background-color: var(--reg_name_bg_color);
+}
+#back_conf_reg_email {
+  background-color: var(--reg_email_bg_color);
 }
 
 /*register confirmation info*/
 #reg_conf_caption {
-  	position: absolute;
-  	top: 20%;
-    height: 50%;
-  	width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-  	text-align: center;
+	position: absolute;
+	top: 20%;
+  height: 50%;
+	width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+	text-align: center;
 }
 #reg_conf_link {
+  color: white;
+  font-size: 15px;
   position: absolute;
   top:80%;
-  height: 20%;
   width: 100%;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
+}
+
+/*login*/
+.login_input_wrapper {
+  margin-top: 25%;
+}
+
+.login_caption {
+  display: block;
+  margin-top: 2%;
+	width: 100%;
+	text-align: center;
+  color: black;
+}
+
+.login_input_field {
+  display: block;
+	margin-left: 20%;
+	width: 60%;
+	height: 10%;
+  border: none;
+  padding-left:2%;
+  padding-right:2%;
+}
+
+#bad_auth {
+  display: none;
+  position: absolute;
+  top: 7%;
+  left:10%;
+  width: 80%;
+  text-align: center;
+  color: white;
+}
+
+.ok_circle.enabled:hover > #ok_arrow_bottom_right {
+  left: 23%;
+  transform: rotateZ(-45deg);
+}
+
+/*list*/
+#back_list_main {
+  text-align: center;
+  color: transparent;
+  background-color: var(--main_bg_color);
+}
+#back_list_main:hover {
+  text-align: center;
+  color: white;
+}
+
+#the_list {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
 }

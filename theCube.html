@@ -32,8 +32,21 @@
         </div>
       </div>
     </figure>
-    <figure class="back"></figure>
-    <figure class="right"></figure>
+    <figure class="back">
+    </figure>
+    <figure class="right">
+      <div id="login_wrapper" class="login_input_wrapper">
+          <div id="back_login_main" class="back_bar_l"></div>
+          <span id="bad_auth"></span>
+          <span class="login_caption">Nazwa użytkownika</span>
+          <input id="login_name" class="login_input_field" type="text">
+          <span class="login_caption">Hasło</span>
+          <input id="login_pass" class="login_input_field" type="password">
+          <div id="login_conf_btn" class="ok_circle enabled">
+            <div id="ok_arrow_right" class="ok_arrow"></div>
+          </div>
+      </div>
+    </figure>
     <figure class="left">
       <div id="user_wrapper" class="register_input_wrapper">
           <div id="back_name_main" class="back_bar_r"></div>
@@ -61,14 +74,19 @@
           </div>
       </div>
     </figure>
-    <figure class="top"></figure>
+    <figure class="top">
+      <div class="list_wrapper">
+        <div id="back_list_main" class="back_bar_d">Wyloguj</div>
+        <div id="the_list"></div<
+      </div>
+    </figure>
     <figure class="bottom">
       <div class="default_wrapper">
-          <div id="back_conf_reg_main_menu" class="back_bar_u"></div>
-          <span id="reg_conf_caption">W normalnej sytuacji tutaj byłaby informacja, że na
-            podany adres email wysłany został link aktywacyjny. W tej wersji, aby uniknąć stosowania
-            mailtrapa, wygenerowany link podawany jest poniżej:</br></span>
-            <a href="#" id="reg_conf_link">dsdsds</a>
+          <div id="back_conf_reg_main" class="back_bar_u"></div>
+          <div id="back_conf_reg_name" class="back_bar_l"></div>
+          <div id="back_conf_reg_email" class="back_bar_l"></div>
+          <span id="reg_conf_caption"></span>
+            <a href="#" id="reg_conf_link"></a>
       </div>
     </figure>
   </div>
