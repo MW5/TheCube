@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(window).on('load', function(){
 
   $("#reg_pass_conf_btn").click(function(){
       $.post("http://localhost/theCubeBackend.php",
@@ -8,7 +8,9 @@ $(document).ready(function(){
           user_pass: $("#user_pass").val()
       },
       function(data, status){
-          alert("Data: " + data + "\nStatus: " + status);
+//serve name and email taken notifications
+//display hash
+          alert("Zwrotka: " + data + "\nStatus: " + status);
       });
   });
 

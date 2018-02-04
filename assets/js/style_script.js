@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(window).on('load', function(){
 
     //temp fixed position cube fix
       // $("#cube").toggleClass("show-bottom");
